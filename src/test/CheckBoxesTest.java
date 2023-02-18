@@ -10,20 +10,20 @@ import static org.testng.Assert.*;
         /*Checkboxes - проверить, что первый чекбокс unchecked, отметить первый чекбокс, проверить что он checked.
         Проверить, что второй чекбокс checked, сделать unchecked, проверить, что он unchecked*/
 
-public class CheckBoxesTest extends BaseTest{
+public class CheckBoxesTest extends BaseTest {
     @Test
-    public void checkBoxes(){
+    public void checkBoxes() {
         driver.get("http://the-internet.herokuapp.com/checkboxes");
-        List<WebElement> checkboxes = driver.findElements( By.cssSelector("[type=checkbox]"));
-        Assert.assertEquals(checkboxes.size(),2,"There not 2 checkboxes");
+        List<WebElement> checkboxes = driver.findElements(By.cssSelector("[type=checkbox]"));
+        Assert.assertEquals(checkboxes.size(), 2, "There not 2 checkboxes");
         WebElement firstCheckBox = checkboxes.get(0);
         WebElement secondCheckBox = checkboxes.get(1);
-        assertFalse(firstCheckBox.isSelected(),"Unchecked box is displayed ");
+        assertFalse(firstCheckBox.isSelected(), "FirstCheckBox is selected ");
         firstCheckBox.click();
-        assertTrue(firstCheckBox.isSelected(),"Unchecked box is not displayed ");
-        assertTrue(secondCheckBox.isSelected(),"Unchecked box is not displayed");
+        assertTrue(firstCheckBox.isSelected(), "FirstCheckBox is not selected ");
+        assertTrue(secondCheckBox.isSelected(), "SecondCheckBox box is not selected");
         secondCheckBox.click();
-        assertFalse(secondCheckBox.isSelected(),"Unchecked box is displayed ");
+        assertFalse(secondCheckBox.isSelected(), "SecondCheckBox box is selected ");
     }
 
 }

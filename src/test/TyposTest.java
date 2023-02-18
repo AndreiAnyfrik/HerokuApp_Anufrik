@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 
 public class TyposTest extends BaseTest {
 
-   public void typos() {
+    public void typos() {
         driver.get("http://the-internet.herokuapp.com/typos");
         WebElement typos = driver.findElement(By.tagName("p"));
-        Assert.assertEquals(typos.getText(),"This example demonstrates a typo being introduced. It does it " +
+        Assert.assertEquals(typos.getText(), "This example demonstrates a typo being introduced. It does it " +
                         "randomly on each page load.\n" + "Sometimes you'll see a typo, other times you won't.",
                 "Mistake in the world won,t ");
     }

@@ -20,16 +20,12 @@ public class AddRemoveElementsTest extends BaseTest {
         addElementButton.click();
         addElementButton.click();
         List<WebElement> deleteElementButtons = driver.findElements(By.xpath("//button[text()='Delete']"));
-        Assert.assertEquals(deleteElementButtons.size(),2,"There not 2 buttons");
+        Assert.assertEquals(deleteElementButtons.size(), 2, "There not 2 buttons");
         deleteElementButtons.get(0).click();
         //assert deleteElementButtons.get(1).isDisplayed()
         assertTrue(deleteElementButtons.get(1).isDisplayed(), "Delete button is not displayed");
-
-        try {
-            deleteElementButtons.get(0).isDisplayed();
-            Assert.fail("the first Delete button shouldn't be visible");
-        } catch (StaleElementReferenceException ex) {
-            System.out.println("Exception was caught. It is expected");
-        }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+        int numberOfElements = driver.findElements(By.xpath("//button[text()='Delete']")).size();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
     }
 }

@@ -7,21 +7,22 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class InputsTest extends BaseTest{
+public class InputsTest extends BaseTest {
     @Test
-    public void addUP(){
+    public void addUP() {
         driver.get("http://the-internet.herokuapp.com/inputs");
-        WebElement typos = driver.findElement(By.tagName("input"));
-        typos.sendKeys(Keys.UP);
-        Assert.assertEquals(typos.getAttribute("value"),"1","The number is not 1");
+        WebElement up = driver.findElement(By.tagName("input"));
+        up.sendKeys(Keys.UP);
+        Assert.assertEquals(up.getAttribute("value"), "1", "The number is not 1");
     }
+
     @Test
     public void addDown() {
         driver.get("http://the-internet.herokuapp.com/inputs");
-        WebElement typos = driver.findElement(By.tagName("input"));
-        typos.sendKeys(Keys.UP);
-        typos.sendKeys(Keys.UP);
-        typos.sendKeys(Keys.DOWN);
-        Assert.assertEquals(typos.getAttribute("value"),"1","The number is not 1");
+        WebElement down = driver.findElement(By.tagName("input"));
+        down.sendKeys(Keys.UP);
+        down.sendKeys(Keys.UP);
+        down.sendKeys(Keys.DOWN);
+        Assert.assertEquals(down.getAttribute("value"), "1", "The number is not 1");
     }
 }
